@@ -1,7 +1,7 @@
 # vue3-marketplace
 
 ## Deployed app 
-https://vue-marketplace-opal.vercel.app/checkout
+https://vue-marketplace-opal.vercel.app
 
 ## Project Description
 
