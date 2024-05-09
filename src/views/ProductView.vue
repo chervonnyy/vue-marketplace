@@ -24,7 +24,7 @@ const isInCart = computed(() =>
   <div class="min-h-[500px] flex items-center justify-center text-2xl" v-if="!product">
     Загрузка...
   </div>
-  <div v-else class="flex gap-8 p-4">
+  <div v-else class="flex gap-8 p-4 flex-col md:flex-row">
     <div class="rounded-md overflow-hidden">
       <picture>
         <source :srcset="product.thumbnailUrl" type="image/webp" />
