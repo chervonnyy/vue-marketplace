@@ -32,10 +32,10 @@ const isInCart = computed(() =>
       </picture>
     </div>
     <div class="space-y-4 max-w-[500px]">
-      <h1 class="text-3xl font-bold">{{ product.name }}</h1>
+      <h1 class="text-xl lg:text-3xl font-bold">{{ product.name }}</h1>
 
       <div class="flex gap-4 items-center">
-        <div class="text-2xl font-bold">{{ product.price }} ₽</div>
+        <div class="text-lg lg:text-2xl font-bold">{{ product.price }} ₽</div>
         <my-button @click="() => store.updateCheckout(product)">
           {{ isInCart ? 'Удалить из коризны' : 'Добавить в корзину' }}
         </my-button>

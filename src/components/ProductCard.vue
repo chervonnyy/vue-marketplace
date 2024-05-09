@@ -19,7 +19,7 @@ const isInCart = computed(() =>
   <router-link :to="`/products/${product.id}`">
     <div class="w-[260px] bg-indigo-50 border border-indigo-100 rounded-md overflow-hidden">
       <div class="">
-        <img :src="product.thumbnailUrl" alt="product image" class="h-full object-cover" />
+        <img :src="product.thumbnailUrl" alt="product image" class="w-full object-cover" />
       </div>
       <div class="flex flex-col justify-between p-4">
         <div class="mb-4">

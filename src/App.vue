@@ -11,7 +11,7 @@ const checkoutProductsLength = computed(() => store.checkoutProducts.length);
   <header class="p-8 text-white bg-indigo-600">
     <div class="max-w-[1200px] w-full mx-auto flex justify-between items-center">
       <RouterLink to="/">
-        <h1 class="text-3xl">Ecwid Marketplace</h1>
+        <h1 class="text-xl lg:text-3xl">Ecwid Marketplace</h1>
       </RouterLink>
       <RouterLink to="/checkout">
         <my-button>
