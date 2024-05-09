@@ -1,5 +1,8 @@
 # vue3-marketplace
 
+## Deployed app 
+https://vue-marketplace-opal.vercel.app/checkout
+
 ## Project Description
 
 Application inteface langugage is Russian according to the api response.
