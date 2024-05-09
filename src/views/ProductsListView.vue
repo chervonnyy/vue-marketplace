@@ -33,7 +33,7 @@ watch(router.currentRoute, (to) => {
 <template>
   <div
     class="min-h-[500px] flex items-center justify-center text-2xl"
-    v-if="!products?.length || !categories.length"
+    v-if="!products?.length || !categories?.length"
   >
     Загрузка...
   </div>

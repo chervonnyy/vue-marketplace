@@ -26,10 +26,10 @@ const isInCart = computed(() =>
         </div>
         <div class="flex flex-col justify-between p-4">
           <div class="mb-4">
-            <div>
+            <div class="text-sm md:text-base">
               {{ product.name }}
             </div>
-            <div class="text-xl font-bold">
+            <div class="text-base md:text-xl font-bold">
               {{ product.defaultDisplayedPriceFormatted }}
             </div>
           </div>
