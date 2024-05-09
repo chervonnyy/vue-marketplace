@@ -13,7 +13,7 @@ const confirmPayment = () => {
 </script>
 
 <template>
-  <div class="p-8 bg-gray-50 rounded-md mt-8 space-y-8">
+  <div class="p-2 md:p-8 bg-gray-50 rounded-md mt-8 space-y-8">
     <h3 v-if="!checkoutProducts.length" class="text-xl text-center">
       <div>Корзина пуста</div>
       <router-link class="underline" to="/">Вернуться на главную</router-link>
