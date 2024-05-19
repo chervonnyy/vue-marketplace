@@ -1,18 +1,13 @@
 <script setup lang="ts">
-import { Product } from '../types/product';
 import MyButton from './MyButton.vue';
-import { computed } from 'vue';
 import { useCheckoutStore } from '../store';
+import { type Product } from '../types/product';
 
 const { product } = defineProps<{
   product: Product;
 }>();
 
 const store = useCheckoutStore();
-
-const isInCart = computed(() =>
-  store.checkoutProducts.find((item: Product) => item.id === product.id)
-);
 </script>
 
 <template>

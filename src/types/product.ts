@@ -140,3 +140,10 @@ export interface Product {
   discountsAllowed: boolean;
   nameYourPriceEnabled: boolean;
 }
+
+// Simplified category interface
+export interface Catergory {
+  id: number;
+  name: string;
+  thumbnailUrl: string;
+}

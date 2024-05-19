@@ -1,27 +1,28 @@
 <script setup lang="ts">
-import { computed, Ref, watch } from 'vue';
+import { computed, type Ref, watch } from 'vue';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useFetch } from '../hooks/useFetch';
 import ProductCard from '../components/ProductCard.vue';
 import MyButton from '../components/MyButton.vue';
+import type { Product, Catergory } from '@/types/product';
 
-const { data: products } = useFetch({ endpoint: 'products' });
-const { data: categories } = useFetch({ endpoint: 'categories' });
+const { data: products } = useFetch<Product[]>({ endpoint: 'products' });
+const { data: categories } = useFetch<Catergory[]>({ endpoint: 'categories' });
 
 const router = useRouter();
 const selectedCategory: Ref<string | null> = ref(
   (router.currentRoute.value.query.category as string) || null
 );
 
-const handleCategorySelect = (id: string) => {
+const handleCategorySelect = (id: number | null) => {
   router.push({ path: '/', query: id ? { category: id } : {} });
 };
 
 const filteredProducts = computed(() => {
   if (!selectedCategory.value) return products.value;
-  return products.value.filter((product) =>
-    product.categoryIds.includes(parseInt(selectedCategory.value))
+  return products.value?.filter((product: Product) =>
+    product.categoryIds.includes(parseInt(selectedCategory.value ? selectedCategory.value : ''))
   );
 });
 
@@ -38,7 +39,7 @@ watch(router.currentRoute, (to) => {
     Загрузка...
   </div>
   <div v-else class="p-4 space-y-4">
-    <div class="flex gap-2 items-center">
+    <div class="flex flex-wrap gap-2 items-center">
       <my-button
         v-for="category in categories"
         v-bind:key="category.id"
@@ -54,7 +55,7 @@ watch(router.currentRoute, (to) => {
       </button>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-fit">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 w-fit">
       <product-card
         v-for="product in filteredProducts"
         v-bind:key="product.id"

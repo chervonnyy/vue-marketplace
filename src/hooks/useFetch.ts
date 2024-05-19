@@ -1,15 +1,13 @@
-import { ref } from "vue";
+import { ref, type Ref } from "vue";
 
 type Props = {
   endpoint: string;
   single?: boolean;
 }
 
-export const useFetch = ({ endpoint, single }: Props) => {
-  const data = ref(null);
-
-  // error and loading are not used in this example
-  const error = ref(null);
+export const useFetch = <T>({ endpoint, single }: Props) => {
+  const data: Ref<T | null> = ref(null);
+  const error = ref<Error | null>(null);
   const loading = ref(true);
 
   // hardcoded values for the sake of the example
@@ -25,9 +23,9 @@ export const useFetch = ({ endpoint, single }: Props) => {
       }
     })
       .then((res) => res.json())
-      .then((res) => {
+      .then(async (res) => {
         console.log(res)
-        data.value = (single) ? res : res.items;
+        data.value = (single ? res : res.items) as T;
       });
   } catch (error) {
     console.error(error);
